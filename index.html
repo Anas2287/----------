@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17241e">
+  <meta name="description" content="واحة هادئة للأذكار والآيات ومواقيت الصلاة.">
+  <title>واحة الذكر والحكمة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="واحة الذكر والحكمة، الصفحة الرئيسية">
+      <span class="brand-mark" aria-hidden="true">۞</span>
+      <span>واحة <strong>الذكر</strong></span>
+    </a>
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <a href="#tasbeeh">السبحة</a>
+      <a href="#wisdom">آية وحكمة</a>
+      <a href="#prayer-times">الصلاة</a>
+    </nav>
+    <span class="header-note"><span class="live-dot" aria-hidden="true"></span>لحظات للسكينة</span>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-rule"></span>وَقُلِ الْحَمْدُ لِلَّهِ</p>
+        <h1 id="hero-title">يومٌ زاهرٌ<br><span>قلبٌ ذاكرٌ</span></h1>
+        <p class="hero-description">مساحة صغيرة لذكرٍ يطمئن القلب، وكلمةٍ طيبة ترافق يومك.</p>
+        <a class="hero-link" href="#tasbeeh">ابدأ لحظتك <span aria-hidden="true">←</span></a>
+      </div>
+      <div class="hero-date" aria-label="تاريخ اليوم">
+        <span class="date-glyph" aria-hidden="true">هَـ</span>
+        <span id="today-date">يومٌ جديد، وذكرٌ جميل</span>
+        <span class="date-divider"></span>
+        <span class="hero-date-caption">خذ من يومك لحظةً لنفسك</span>
+      </div>
+      <span class="hero-ornament" aria-hidden="true">۞</span>
+    </section>
+
+    <section class="daily-practice" aria-label="أدوات اليوم">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span>على مهل</p>
+          <h2>مساحتك اليومية</h2>
+        </div>
+        <p class="section-aside">قليلٌ دائم، خيرٌ من كثيرٍ منقطع</p>
+      </div>
+
+      <div class="tools-grid">
+        <article class="tool-panel tasbeeh-panel" id="tasbeeh" aria-labelledby="tasbeeh-title">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-kicker">١ / الذكر</span>
+              <h3 id="tasbeeh-title">سبحتك</h3>
+            </div>
+            <span class="panel-symbol" aria-hidden="true">تَ</span>
+          </div>
+          <label class="select-label" for="dhikr-select">اختر ذكرك</label>
+          <select id="dhikr-select" class="field-select">
+            <option value="subhan">سبحان الله وبحمده</option>
+            <option value="istighfar">أستغفر الله وأتوب إليه</option>
+            <option value="salawat">اللهم صلِّ وسلم على نبينا محمد</option>
+          </select>
+          <div class="counter-wrap">
+            <div class="counter-ring" id="counter-ring">
+              <button class="count-button" id="count-button" type="button" aria-label="اضغط للتسبيح">
+                <span class="count-number" id="count-number" aria-live="polite">٠</span>
+                <span class="count-caption">اضغط للذكر</span>
+              </button>
+            </div>
+            <p class="cycle-note" id="cycle-note">كل ٣٣ تسبيحة، محطةٌ للتأمل</p>
+          </div>
+          <div class="panel-footer">
+            <span class="saved-note"><span class="saved-mark" aria-hidden="true">✓</span>يُحفظ تلقائياً</span>
+            <button class="text-button" id="reset-button" type="button" aria-label="إعادة ضبط العداد">
+              <span aria-hidden="true">↺</span> إعادة الضبط
+            </button>
+          </div>
+        </article>
+
+        <article class="tool-panel wisdom-panel" id="wisdom" aria-labelledby="wisdom-title">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-kicker">٢ / نورٌ ومعنى</span>
+              <h3 id="wisdom-title">آية وحكمة</h3>
+            </div>
+            <span class="panel-symbol" aria-hidden="true">نُ</span>
+          </div>
+          <div class="quote-content" aria-live="polite" aria-atomic="true">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="quote-text" id="quote-text">إِنَّ مَعَ الْعُسْرِ يُسْرًا</p>
+            <p class="quote-source" id="quote-source">سورة الشرح · الآية ٦</p>
+          </div>
+          <div class="wisdom-actions">
+            <button class="secondary-button" id="next-quote" type="button"><span aria-hidden="true">↻</span> آية أو حديث آخر</button>
+            <button class="copy-button" id="copy-quote" type="button" aria-label="نسخ النص" title="نسخ النص">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>
+            </button>
+          </div>
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="prayer-section" id="prayer-times" aria-labelledby="prayer-title">
+      <div class="prayer-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span>مواعيدُ الطمأنينة</p>
+          <h2 id="prayer-title">مواقيت الصلاة</h2>
+        </div>
+        <div class="location-controls">
+          <label class="visually-hidden" for="city-select">المدينة</label>
+          <select id="city-select" class="field-select city-select">
+            <option value="taif">الطائف</option>
+            <option value="makkah">مكة المكرمة</option>
+          </select>
+          <button class="location-button" id="location-button" type="button" title="استخدم موقعي الحالي">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-7-7 7 7 0 0 1 7 7Z"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+            <span>موقعي</span>
+          </button>
+        </div>
+      </div>
+      <div class="prayer-meta">
+        <span id="prayer-date">مواقيت اليوم</span>
+        <span class="prayer-status" id="prayer-status" role="status" aria-live="polite">جارٍ جلب المواقيت...</span>
+      </div>
+      <div class="prayer-list" id="prayer-list" aria-live="polite">
+        <div class="prayer-item"><span>الفجر</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>الشروق</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>الظهر</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>العصر</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>المغرب</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>العشاء</span><strong>--:--</strong></div>
+      </div>
+      <div class="next-prayer" id="next-prayer" aria-live="polite"><span class="next-prayer-mark" aria-hidden="true">◷</span><span>الصلاة القادمة</span><strong id="next-prayer-name">--</strong><span class="next-prayer-separator"></span><span id="next-prayer-countdown">--:--</span></div>
+      <p class="prayer-attribution">المواقيت محسوبة عبر خدمة <a href="https://aladhan.com/prayer-times-api" target="_blank" rel="noreferrer">AlAdhan</a> · طريقة أم القرى</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>اللهم اجعل ألسنتنا عامرةً بذكرك</span>
+    <span class="footer-mark" aria-hidden="true">۞</span>
+    <span>واحة الذكر والحكمة</span>
+  </footer>
+</body>
+</html>
