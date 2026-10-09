@@ -119,6 +119,7 @@ const prayerList = document.querySelector("#prayer-list");
 const prayerStatus = document.querySelector("#prayer-status");
 const prayerDate = document.querySelector("#prayer-date");
 const nextPrayerName = document.querySelector("#next-prayer-name");
+const nextPrayerTime = document.querySelector("#next-prayer-time");
 const nextPrayerCountdown = document.querySelector("#next-prayer-countdown");
 const prayerItems = [
   { key: "Fajr", label: "الفجر" },
@@ -183,6 +184,8 @@ function renderNextPrayer() {
   const seconds = secondsRemaining % 60;
   const arabicTime = (number) => arabicDigits.format(number).padStart(2, "٠");
   nextPrayerName.textContent = prayerItems.find((item) => item.key === upcoming.key)?.label || "الفجر";
+  nextPrayerTime.textContent = formatTime(currentTimings[upcoming.key]);
+  nextPrayerTime.dateTime = upcoming.at.toISOString();
   nextPrayerCountdown.textContent = `${arabicTime(hours)}:${arabicTime(minutes)}:${arabicTime(seconds)}`;
   prayerList.querySelectorAll(".prayer-item").forEach((item, index) => {
     item.classList.toggle("is-next", prayerItems[index].key === upcoming.key);
@@ -194,6 +197,8 @@ async function loadPrayerTimes(coordinates, statusPrefix = "") {
   activeCoordinates = coordinates;
   prayerStatus.textContent = "جارٍ جلب المواقيت...";
   nextPrayerName.textContent = "--";
+  nextPrayerTime.textContent = "--:--";
+  nextPrayerTime.removeAttribute("datetime");
   nextPrayerCountdown.textContent = "--:--";
   const now = new Date();
   const requestDate = `${String(now.getDate()).padStart(2, "0")}-${String(now.getMonth() + 1).padStart(2, "0")}-${now.getFullYear()}`;
@@ -222,6 +227,10 @@ async function loadPrayerTimes(coordinates, statusPrefix = "") {
     if (requestId !== fetchSequence) return;
     currentTimings = null;
     prayerStatus.textContent = "تعذّر تحميل المواقيت. تحقق من الاتصال ثم أعد المحاولة.";
+    nextPrayerName.textContent = "--";
+    nextPrayerTime.textContent = "--:--";
+    nextPrayerTime.removeAttribute("datetime");
+    nextPrayerCountdown.textContent = "--:--";
     prayerDate.textContent = `${formatPrayerDate(now)} · ${coordinates.name || "موقعك"}`;
     prayerList.innerHTML = prayerItems.map(({ label }) =>
       `<div class="prayer-item"><span>${label}</span><strong>--:--</strong></div>`

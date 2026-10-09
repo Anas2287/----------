@@ -19,9 +19,8 @@
       <span>واحة <strong>الذكر</strong></span>
     </a>
     <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <a href="#prayer-times">مواقيت الصلاة</a>
       <a href="#tasbeeh">السبحة</a>
-      <a href="#wisdom">آية وحكمة</a>
-      <a href="#prayer-times">الصلاة</a>
     </nav>
     <span class="header-note"><span class="live-dot" aria-hidden="true"></span>لحظات للسكينة</span>
   </header>
@@ -41,6 +40,47 @@
         <span class="hero-date-caption">خذ من يومك لحظةً لنفسك</span>
       </div>
       <span class="hero-ornament" aria-hidden="true">۞</span>
+    </section>
+
+    <section class="prayer-section" id="prayer-times" aria-labelledby="prayer-title">
+      <div class="prayer-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-rule"></span>مواعيدُ الطمأنينة</p>
+          <h2 id="prayer-title">مواقيت الصلاة</h2>
+        </div>
+        <div class="location-controls">
+          <label class="visually-hidden" for="city-select">المدينة</label>
+          <select id="city-select" class="field-select city-select">
+            <option value="taif">الطائف</option>
+            <option value="makkah">مكة المكرمة</option>
+          </select>
+          <button class="location-button" id="location-button" type="button" title="استخدم موقعي الحالي">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-7-7 7 7 0 0 1 7 7Z"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+            <span>موقعي</span>
+          </button>
+        </div>
+      </div>
+      <div class="prayer-meta">
+        <span id="prayer-date">مواقيت اليوم</span>
+        <span class="prayer-status" id="prayer-status" role="status" aria-live="polite">جارٍ جلب المواقيت...</span>
+      </div>
+      <div class="prayer-list" id="prayer-list" aria-live="polite">
+        <div class="prayer-item"><span>الفجر</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>الشروق</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>الظهر</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>العصر</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>المغرب</span><strong>--:--</strong></div>
+        <div class="prayer-item"><span>العشاء</span><strong>--:--</strong></div>
+      </div>
+      <div class="next-prayer" id="next-prayer" aria-live="polite" aria-label="الصلاة القادمة">
+        <span class="next-prayer-mark" aria-hidden="true">◷</span>
+        <span class="next-prayer-label">الصلاة القادمة</span>
+        <strong id="next-prayer-name">--</strong>
+        <time class="next-prayer-time" id="next-prayer-time">--:--</time>
+        <span class="next-prayer-countdown-label">الوقت المتبقي</span>
+        <span id="next-prayer-countdown">--:--</span>
+      </div>
+      <p class="prayer-attribution">المواقيت محسوبة عبر خدمة <a href="https://aladhan.com/prayer-times-api" target="_blank" rel="noreferrer">AlAdhan</a> · طريقة أم القرى</p>
     </section>
 
     <section class="daily-practice" aria-label="أدوات اليوم">
@@ -108,39 +148,6 @@
       </div>
     </section>
 
-    <section class="prayer-section" id="prayer-times" aria-labelledby="prayer-title">
-      <div class="prayer-heading">
-        <div>
-          <p class="eyebrow"><span class="eyebrow-rule"></span>مواعيدُ الطمأنينة</p>
-          <h2 id="prayer-title">مواقيت الصلاة</h2>
-        </div>
-        <div class="location-controls">
-          <label class="visually-hidden" for="city-select">المدينة</label>
-          <select id="city-select" class="field-select city-select">
-            <option value="taif">الطائف</option>
-            <option value="makkah">مكة المكرمة</option>
-          </select>
-          <button class="location-button" id="location-button" type="button" title="استخدم موقعي الحالي">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-7-7 7 7 0 0 1 7 7Z"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
-            <span>موقعي</span>
-          </button>
-        </div>
-      </div>
-      <div class="prayer-meta">
-        <span id="prayer-date">مواقيت اليوم</span>
-        <span class="prayer-status" id="prayer-status" role="status" aria-live="polite">جارٍ جلب المواقيت...</span>
-      </div>
-      <div class="prayer-list" id="prayer-list" aria-live="polite">
-        <div class="prayer-item"><span>الفجر</span><strong>--:--</strong></div>
-        <div class="prayer-item"><span>الشروق</span><strong>--:--</strong></div>
-        <div class="prayer-item"><span>الظهر</span><strong>--:--</strong></div>
-        <div class="prayer-item"><span>العصر</span><strong>--:--</strong></div>
-        <div class="prayer-item"><span>المغرب</span><strong>--:--</strong></div>
-        <div class="prayer-item"><span>العشاء</span><strong>--:--</strong></div>
-      </div>
-      <div class="next-prayer" id="next-prayer" aria-live="polite"><span class="next-prayer-mark" aria-hidden="true">◷</span><span>الصلاة القادمة</span><strong id="next-prayer-name">--</strong><span class="next-prayer-separator"></span><span id="next-prayer-countdown">--:--</span></div>
-      <p class="prayer-attribution">المواقيت محسوبة عبر خدمة <a href="https://aladhan.com/prayer-times-api" target="_blank" rel="noreferrer">AlAdhan</a> · طريقة أم القرى</p>
-    </section>
   </main>
 
   <footer class="site-footer">
